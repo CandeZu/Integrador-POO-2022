@@ -3,6 +3,7 @@ from Medicamentos import Medicamento
 import csv
 import numpy as np
 from datetime import date
+import os
 
 class ManejadorCama():
     __incremento = 5
@@ -78,4 +79,15 @@ class ManejadorCama():
         else:
             print("Paciente no existente")
 
+    def ListaPacientesInternados(self):
+        diagnostico = input("Ingrese diagnostico que desea solicitar\n")
+        os.system("cls")
+        print("Pacientes con diagnostico de {}".format(diagnostico).lower())
+        for i in range(30):
+            if(self.__camas[i] != None):
+                if (self.__camas[i].getEstado() == True):
+                    if(self.__camas[i].getDiagnostico().lower() == diagnostico):
+                        print("".center(20,"-"))
+                        print(self.__camas[i])
+                        print("".center(20,"-"))
     

@@ -41,7 +41,9 @@ class Menu:
                     m = self.__listaMedicamentos.ListarMedicamentos()
                     self.__listaCamas.DarAlta(m)
 
-                # elif (self.__op ==4):
+                elif (self.__op ==4):
+                    self.__listaCamas.ListaPacientesInternados()
+
 
                 elif(self.__op == 0):
                     continuar = not continuar
