@@ -38,8 +38,7 @@ class Menu:
                     self.__listaMedicamentos.ListarMedicamentos()
         
                 elif(self.__op ==3):
-                    m = self.__listaMedicamentos.ListarMedicamentos()
-                    self.__listaCamas.DarAlta(m)
+                    self.__listaCamas.DarAlta(self.__listaMedicamentos)
 
                 elif (self.__op ==4):
                     self.__listaCamas.ListaPacientesInternados()

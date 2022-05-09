@@ -57,9 +57,10 @@ class ManejadorCama():
             i = -1
         return i
 
-    def DarAlta(self, Medicamento):
+    def DarAlta(self, unManejadorMedicamentos):
         print("Ingrese paciente que desea dar de alta: ")
         nyapaciente = input()
+
         i = self.BuscarPaciente(nyapaciente)
         if( i != -1)and (self.__camas[i].getEstado()):
             print("PACIENTE ENCONTRADO".center(20,"-"))
@@ -70,24 +71,26 @@ class ManejadorCama():
             print("Paciente:{}     Cama:{}     Habitacion:{}\nDiagnostico:{}       Fecha de internacion:{}\nFecha de Alta:{}".format(self.__camas[i].getNyapaciente(),self.__camas[i].getId(),self.__camas[i].getHabitacion(),self.__camas[i].getDiagnostico(),self.__camas[i].getFechainter(),self.__camas[i].getFechadealta()))
             print("".center(20,"-"))
             print("Medicamento/monodroga                Presentacion                    Cantidad              Precio")
-            Total = 0
-            for i in range(len(Medicamento)):
-                if(Medicamento[i].getIdcama() == self.__camas[i].getId()):
-                    print("{0:^30}{1:^30}{2:^30}{3:^7}".format(Medicamento[i].getMonodroga(),Medicamento[i].getPresentacion(),Medicamento[i].getCantAplicada(),Medicamento[i].getPrecioTotal()))
-                    Total += Medicamento[i].getPrecioTotal()
-            print("Total Adeudado:{0:82}".format(Total))
+            unManejadorMedicamentos.listarMedicamentosPorIdCama(self.__camas[i].getId())
         else:
             print("Paciente no existente")
 
+    # def ListaPacientesInternados(self):
+    #     diagnostico = input("Ingrese diagnostico que desea solicitar\n")
+    #     os.system("cls")
+    #     print("Pacientes con diagnostico de {}".format(diagnostico).lower())
+    #     for i in range(30):
+    #         if(self.__camas[i] != None):
+    #             if (self.__camas[i].getEstado() == True):
+    #                 if(self.__camas[i].getDiagnostico().lower() == diagnostico):
+    #                     print("".center(20,"-"))
+    #                     print(self.__camas[i])
+    #                     print("".center(20,"-"))
+
     def ListaPacientesInternados(self):
-        diagnostico = input("Ingrese diagnostico que desea solicitar\n")
-        os.system("cls")
-        print("Pacientes con diagnostico de {}".format(diagnostico).lower())
-        for i in range(30):
-            if(self.__camas[i] != None):
-                if (self.__camas[i].getEstado() == True):
-                    if(self.__camas[i].getDiagnostico().lower() == diagnostico):
-                        print("".center(20,"-"))
-                        print(self.__camas[i])
-                        print("".center(20,"-"))
-    
+        diagnostico = input("Ingrese el diagnostico: ")
+        print("{0:<25}{1:<5}{2:<15}{3:<20}{4:<12}".format("Nombre", "Cama", "Habitacion", "Diagnostico", "Fecha de internacion"))
+        for unaCama in self.__camas:
+            if isinstance(unaCama, Cama):
+                if unaCama.getEstado() and unaCama.getDiagnostico().lower() == diagnostico.lower():
+                    print("{0:<25}{1:<5}{2:<15}{3:<20}{4:<12}".format(unaCama.getNyapaciente(), unaCama.getId(), unaCama.getHabitacion(), unaCama.getDiagnostico(), unaCama.getFechainter()))

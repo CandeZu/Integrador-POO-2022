@@ -30,3 +30,11 @@ class ManejadorMedicamento:
         for medicamento in self.__listaMedicamentos:
             print(medicamento)
             print("\n".center(20,"-"))
+
+    def listarMedicamentosPorIdCama(self, idCama):
+        Total = 0
+        for unMedicamento in self.__listaMedicamentos:
+            if unMedicamento.getIdcama() == idCama:
+                print("{0:^30}{1:^30}{2:^30}{3:^7}".format(unMedicamento.getMonodroga(),unMedicamento.getPresentacion(),unMedicamento.getCantAplicada(),unMedicamento.getPrecioTotal()))
+                Total += unMedicamento.getPrecioTotal()
+        print("Total Adeudado:{0:82}".format(Total))
