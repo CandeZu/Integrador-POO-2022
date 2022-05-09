@@ -33,10 +33,14 @@ class Menu:
 
                 if(self.__op == 1):
                     self.__listaCamas.ListarCamas()
-                # elif(self.__op ==2):
+
+                elif(self.__op ==2):
+                    self.__listaMedicamentos.ListarMedicamentos()
         
-                # elif(self.__op ==3):
-                
+                elif(self.__op ==3):
+                    m = self.__listaMedicamentos.ListarMedicamentos()
+                    self.__listaCamas.DarAlta(m)
+
                 # elif (self.__op ==4):
 
                 elif(self.__op == 0):

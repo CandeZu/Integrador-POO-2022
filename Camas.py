@@ -37,5 +37,11 @@ class Cama:
     def getFechadealta(self):
         return self.__fechadealta
     
+    def setFechadealta(self, fechadealta):
+        self.__fechadealta = fechadealta
+    
+    def setEstado(self, estado):
+        self.__estado = estado
+
     def __str__(self):
         return "Id cama: {}\nHabitacion: {}\nEstado: {}\nNombre del paciente: {}\nDiagnostico: {}\nFecha de internación: {}\nFecha de alta: {}".format(self.__id, self.__habitacion, self.__estado, self.__nyapaciente, self.__diagnostico, self.__fechainter, self.__fechadealta)

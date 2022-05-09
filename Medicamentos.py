@@ -37,4 +37,6 @@ class Medicamento:
     def getPrecioTotal(self):
         return self.__precioTotal
     
+    def __str__(self):
+        return "Id cama: {}\nId medicamento: {}\nNombre: {}\nMonodroga: {}\nPresentacion: {}\nCantidad aplicada: {}\nPrecio total: {}".format(self.__idcama, self.__idMedicamento, self.__nombre, self.__monodroga, self.__presentacion, self.__cantAplicada, self.__precioTotal)
     
