@@ -82,5 +82,6 @@ class ManejadorCama():
         print("{0:<25}{1:<5}{2:<15}{3:<20}{4:<12}".format("Nombre", "Cama", "Habitacion", "Diagnostico", "Fecha de internacion"))
         for unaCama in self.__camas:
             if isinstance(unaCama, Cama):
-                if unaCama.getEstado() and unaCama.getDiagnostico().lower() == diagnostico.lower():
-                    print("{0:<25}{1:<5}{2:<15}{3:<20}{4:<12}".format(unaCama.getNyapaciente(), unaCama.getId(), unaCama.getHabitacion(), unaCama.getDiagnostico(), unaCama.getFechainter()))
+                if (unaCama.getEstado()):
+                    if(unaCama.getDiagnostico().lower() == diagnostico.lower()):
+                        print("{0:<25}{1:<5}{2:<15}{3:<20}{4:<12}".format(unaCama.getNyapaciente(), unaCama.getId(), unaCama.getHabitacion(), unaCama.getDiagnostico(), unaCama.getFechainter()))
