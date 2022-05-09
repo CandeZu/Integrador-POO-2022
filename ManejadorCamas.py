@@ -75,17 +75,7 @@ class ManejadorCama():
         else:
             print("Paciente no existente")
 
-    # def ListaPacientesInternados(self):
-    #     diagnostico = input("Ingrese diagnostico que desea solicitar\n")
-    #     os.system("cls")
-    #     print("Pacientes con diagnostico de {}".format(diagnostico).lower())
-    #     for i in range(30):
-    #         if(self.__camas[i] != None):
-    #             if (self.__camas[i].getEstado() == True):
-    #                 if(self.__camas[i].getDiagnostico().lower() == diagnostico):
-    #                     print("".center(20,"-"))
-    #                     print(self.__camas[i])
-    #                     print("".center(20,"-"))
+
 
     def ListaPacientesInternados(self):
         diagnostico = input("Ingrese el diagnostico: ")
